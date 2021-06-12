@@ -1,0 +1,136 @@
+
+GET http://localhost:3000/users/6
+//user with id 6
+###
+GET http://localhost:3000/users
+//all users
+###
+
+GET http://localhost:3000/users?role=admin
+//tout les users qui ont le role admin
+###
+GET http://localhost:3000/users?role=guest
+//tout les users qui ont le role guest
+###
+GET http://localhost:3000/users?role=author
+//tout les users qui ont le role author
+###
+GET http://localhost:3000/users/email/Katharina62@hotmail.com
+//user by email
+###
+POST http://localhost:3000/users
+Content-Type: application/json
+ 
+{
+	"username": "aaar",
+	"email": "haaar@tt.com",
+	"password": "haaaar00ttjj123",
+	"role": "guest"
+}
+###
+DELETE http://localhost:3000/users/6
+###
+PUT http://localhost:3000/users/1
+Content-Type: application/json
+ 
+{
+	"username": "rima",
+	"email": "rima@tt.com",
+	"password": "haajar00ttjj123",
+	"role": "guest"
+}
+//update
+
+
+
+
+
+###
+GET http://localhost:3000/articles
+//all article
+###
+
+GET http://localhost:3000/articles/6
+//article with id 6
+###
+POST http://localhost:3000/articles
+Content-Type: application/json
+ 
+{
+	"title": "hzzajar",
+	"content": "hajttcom"
+}
+
+###
+DELETE http://localhost:3000/articles/6
+###
+PUT http://localhost:3000/articles/1
+Content-Type: application/json
+ 
+{
+	"title": "changed Delectus cupiditate labore ut",
+	"content": "changed dolor"
+	
+}
+//update
+
+
+
+
+
+###
+GET http://localhost:3000/comments
+//all comment
+###
+GET http://localhost:3000/comments/1
+//comment by id
+###
+POST http://localhost:3000/comments
+Content-Type: application/json
+ 
+{
+	"content": "hajttcom"
+}
+//add comment
+###
+PUT http://localhost:3000/comments/1
+Content-Type: application/json
+ 
+{
+	"content": "changed "
+	
+}
+//update
+###
+DELETE http://localhost:3000/comments/6
+//delete comment
+
+
+
+###
+GET http://localhost:3000/Tags
+//all comment
+
+###
+GET http://localhost:3000/Tags/1
+//tag by id
+###
+POST http://localhost:3000/Tags
+Content-Type: application/json
+ 
+{
+	"name": "hajttcom"
+}
+//add tag
+###
+PUT http://localhost:3000/Tags/1
+Content-Type: application/json
+ 
+{
+	"name": "changed "
+	
+}
+//update
+###
+DELETE http://localhost:3000/Tags/6
+//delete comment
