@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>article</title>
+  
+   
+</head>
+
+
+<body>
+    <dev class="articles">
+    </dev>
+    
+    
+</body>
+<script>
+    async function toArticle() {
+var url_string = window.location.href;
+var url = new URL(url_string);
+var c = url.searchParams.get("id");
+console.log(c);
+let url2 = `http://localhost:3000/articles/${c}`;
+    try {
+        let res = await fetch(url2);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function renderArticle() {
+    let cmt = 1;
+    let data = await toArticle()
+    let toa=`<dev><h1>${data.title}</h1></dev>
+        <dev>${data.content}</dev> ` ;
+    let container = document.querySelector('.articles');
+    container.innerHTML = toa;
+}
+renderArticle();
+
+</script>
+
+</html>

@@ -8,9 +8,7 @@ const { Tag } = require('../models')
         where: {
             id : id,
         }
-    })
-       
-   },
+    })},
 
    addTag(tag) {
     return Tag.create(tag);

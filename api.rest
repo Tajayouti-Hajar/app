@@ -47,10 +47,10 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3000/articles
-//all article
+//all articles
 ###
 
-GET http://localhost:3000/articles/6
+GET http://localhost:3000/articles/10
 //article with id 6
 ###
 POST http://localhost:3000/articles
@@ -62,7 +62,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/articles/6
+DELETE http://localhost:3000/articles/1
 ###
 PUT http://localhost:3000/articles/1
 Content-Type: application/json

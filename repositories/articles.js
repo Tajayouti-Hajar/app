@@ -1,11 +1,14 @@
 const { Article } = require('../models')
  module.exports = {
-   getAllArticle() {
-     return Article.findAll()
+   getAllArticle(offset=0,limit) {
+     return Article.findAll({
+         offset : offset,
+         limit : limit 
+     })
    },
    
    getArticle(id) {
-    return Article.findAll({
+    return Article.findOne({
         where: {
             id : id,
         }

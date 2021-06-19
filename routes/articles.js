@@ -3,29 +3,20 @@ const articles = require("../repositories/articles");
 const articlesRepo = require("../repositories/articles");
 
 /* GET all article. */
-router.get("/", async function (req, res, next) {
- if(req.query.offset || req.query.limit)
- {
-     let offset = Number(req.query.offset);
-     let limit = Number(req.query.limit);
+router.get("/:offset?/:limit?", async function (req, res, next) {
+  if(req.params.offset && req.params.limit ){
+    let offset =req.params.offset ? Number(req.params.offset): undefined;
+     let limit = req.params.offset ?Number (req.params.limit): undefined;
      res.send(await articlesRepo.getAllArticle(offset,limit));
- }
-  else{
-    res.send(await articlesRepo.getAllArticle());
   }
-
-
-
-
-  
+  else{
+    res.send(await articlesRepo.getArticle(req.params.offset));
+  } 
 });
+
 /* GET article by id. */
 router.get("/:id", async function (req, res, next) {
-    let article = await articlesRepo.getArticle(req.params.id);
-    if (article.length > 0) {
-      res.json(article);
-    }
-    res.json({ message: "user not found" });
+    res.send(await articlesRepo.getArticle(req.params.id));
   });
 
   /* Create article */

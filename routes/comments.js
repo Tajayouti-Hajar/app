@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Comment = require("../repositories/comments");
 const CommentR = require("../repositories/comments");
 
-/* GET all article. */
+/* GET all comments. */
 router.get("/", async function (req, res, next) {
  if(req.query.offset || req.query.limit)
  {
@@ -12,13 +12,7 @@ router.get("/", async function (req, res, next) {
  }
   else{
     res.send(await CommentR.getAllComment());
-  }
-
-
-
-
-  
-});
+  } });
 /* GET comment by id. */
 router.get("/:id", async function (req, res, next) {
     let comment = await CommentR.getComment(req.params.id);
@@ -27,17 +21,10 @@ router.get("/:id", async function (req, res, next) {
     }
     res.json({ message: "user not found" });
   });
-
-
-
-
   /* Create comment */
 router.post("/", async function (req, res, next) {
     res.json(await CommentR.addComment(req.body));
   });
-  
-
-
 /*delete comment*/
 router.delete("/:id",async function(req,res,next){
     if(await CommentR.deleteComment(req.params.id)){
